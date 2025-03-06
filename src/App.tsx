@@ -17,7 +17,8 @@ function App() {
         path: `${group.path}/${child.path}`,
         element: child.element,
       }))
-    );
+  );
+  console.log("flatRoutes==>", flatRoutes)
 
   return (
     <Router>

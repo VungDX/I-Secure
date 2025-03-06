@@ -1,0 +1,8 @@
+// src/pages/login/Login.scss
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; // Đảm bảo chiếm toàn màn hình
+    background-color: #f0f2f5; // Màu nền nhẹ nhàng
+}

@@ -19,7 +19,7 @@ import UserManagement from '../pages/administration/UserManagement';
 import Organization from '../pages/administration/Organization';
 import RoleManagement from '../pages/administration/RoleManagement';
 import AccountManagement from '../pages/administration/AccountManagement';
-import Login from '../pages/login/Login';
+import LoginLayout from '../layouts/LoginLayout';
 
 interface AppRoute {
   path: string;
@@ -36,7 +36,7 @@ export const routes: AppRoute[] = [
     path: '/login',
     label: 'Login',
     isPrivate: false,
-    element: <Login />,
+    element: <LoginLayout />,
     hideInMenu: true, // Ẩn khỏi Sidebar
   },
   {
@@ -113,3 +113,7 @@ export const flatRoutes = routes
       },
     ];
   });
+
+  // Tách public và private routes
+export const publicRoutes = flatRoutes.filter((route) => !route.isPrivate);
+export const privateRoutes = flatRoutes.filter((route) => route.isPrivate);
