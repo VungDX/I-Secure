@@ -113,7 +113,3 @@ export const flatRoutes = routes
       },
     ];
   });
-
-  // Tách public và private routes
-export const publicRoutes = flatRoutes.filter((route) => !route.isPrivate);
-export const privateRoutes = flatRoutes.filter((route) => route.isPrivate);
