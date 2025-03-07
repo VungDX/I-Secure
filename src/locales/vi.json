@@ -1,0 +1,9 @@
+{
+  "dashboard": {
+    "company": {
+      "title": "Tổng thể Công ty",
+      "annual": "Vi phạm hàng năm",
+      "currentPeriod": "Vi phạm gần đây"
+    }
+  }
+}

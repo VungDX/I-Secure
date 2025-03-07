@@ -1,20 +1,24 @@
-import { useNavigate } from 'react-router-dom';
-import { Layout, Menu, Dropdown, Space } from 'antd';
+import { useNavigate } from "react-router-dom";
+import { Layout, Menu, Dropdown, Space } from "antd";
 import {
   UserOutlined,
   GlobalOutlined,
   ClockCircleOutlined,
   DownOutlined,
-} from '@ant-design/icons';
-import { useState, useEffect } from 'react';
+} from "@ant-design/icons";
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const { Header: AntHeader } = Layout;
 
 const Header = () => {
   const navigate = useNavigate();
+  const { i18n } = useTranslation();
 
   // State cho timezone
-  const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
+  const [currentTime, setCurrentTime] = useState(
+    new Date().toLocaleTimeString()
+  );
 
   // Cập nhật thời gian mỗi giây
   useEffect(() => {
@@ -29,14 +33,14 @@ const Header = () => {
     <Menu
       items={[
         {
-          key: 'en',
-          label: 'English',
-          onClick: () => console.log('Switch to English'), // Thay bằng logic i18n
+          key: "en",
+          label: "English",
+          onClick: () => i18n.changeLanguage("en"), // Thay bằng logic i18n
         },
         {
-          key: 'vi',
-          label: 'Tiếng Việt',
-          onClick: () => console.log('Switch to Vietnamese'), // Thay bằng logic i18n
+          key: "vi",
+          label: "Tiếng Việt",
+          onClick: () => i18n.changeLanguage("vi"), // Thay bằng logic i18n
         },
       ]}
     />
@@ -47,14 +51,14 @@ const Header = () => {
     <Menu
       items={[
         {
-          key: 'profile',
-          label: 'Profile',
-          onClick: () => navigate('/profile'), // Điều hướng đến trang profile nếu có
+          key: "profile",
+          label: "Profile",
+          onClick: () => navigate("/profile"), // Điều hướng đến trang profile nếu có
         },
         {
-          key: 'logout',
-          label: 'Logout',
-          onClick: () => console.log('Logout'), // Thay bằng logic đăng xuất
+          key: "logout",
+          label: "Logout",
+          onClick: () => console.log("Logout"), // Thay bằng logic đăng xuất
         },
       ]}
     />
@@ -63,7 +67,7 @@ const Header = () => {
   // Các mục trong Header
   const headerItems = [
     {
-      key: 'timezone',
+      key: "timezone",
       label: (
         <Space>
           <ClockCircleOutlined />
@@ -72,7 +76,7 @@ const Header = () => {
       ),
     },
     {
-      key: 'language',
+      key: "language",
       label: (
         <Dropdown overlay={languageMenu}>
           <Space>
@@ -84,7 +88,7 @@ const Header = () => {
       ),
     },
     {
-      key: 'profile',
+      key: "profile",
       label: (
         <Dropdown overlay={profileMenu}>
           <Space>
@@ -103,7 +107,7 @@ const Header = () => {
         theme="dark"
         mode="horizontal"
         items={headerItems}
-        style={{ lineHeight: '64px', justifyContent: 'flex-end' }} // Căn phải
+        style={{ lineHeight: "64px", justifyContent: "flex-end" }} // Căn phải
       />
     </AntHeader>
   );
