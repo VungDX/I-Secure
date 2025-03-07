@@ -5,7 +5,7 @@ const { Title } = Typography;
 const SecurityBoard = () => (
   <div>
     <Title level={2}>Security Board</Title>
-    <p>Bảng điều khiển bảo mật.</p>
+    <p>Thông tin về Security Board.</p>
   </div>
 );
 

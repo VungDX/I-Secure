@@ -5,7 +5,7 @@ const { Title } = Typography;
 const Standard = () => (
   <div>
     <Title level={2}>Standard</Title>
-    <p>Thông tin về công ty.</p>
+    <p>Thông tin về Standard.</p>
   </div>
 );
 
