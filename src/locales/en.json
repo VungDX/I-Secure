@@ -1,0 +1,9 @@
+{
+  "dashboard": {
+    "company": {
+      "title": "Company Overall",
+      "annual": "Annual Violation",
+      "currentPeriod": "Current Period Violation"
+    }
+  }
+}
