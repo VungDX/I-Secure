@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { companyApi } from "../../api";
 import { CompanyData } from "../../types/company";
 import { useTranslation } from "react-i18next";
+import { Button } from 'antd'; 
+import useAppContext from "../../hooks/useAppContext";
+
 
 const { Title } = Typography;
 
@@ -20,20 +23,20 @@ const columns: ColumnsType<CompanyData> = [
 
 const Company = () => {
   const [companies, setCompanies] = useState<CompanyData[]>([]);
-  const [loading, setLoading] = useState(false); // Thêm state để quản lý loading
+  const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
+  const { theme, setTheme } = useAppContext();
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true); // Bật loading trước khi gọi API
+      setLoading(true);
       try {
         const response = await companyApi.getCompanies();
-        console.log("response=>", response.data);
         setCompanies(response.data.companies);
       } catch (error) {
         console.error("Lỗi khi lấy dữ liệu:", error);
       } finally {
-        setLoading(false); // Tắt loading sau khi hoàn tất (dù thành công hay lỗi)
+        setLoading(false);
       }
     };
     fetchData();
@@ -41,6 +44,13 @@ const Company = () => {
 
   return (
     <div style={{ padding: "20px" }}>
+      <p>Current Theme: {theme}</p>
+      <Button
+        type="primary"
+        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      >
+        Toggle Theme
+      </Button>
       <Title level={2}>{t("dashboard.company.title")}</Title>
       <Title level={4}>{t("dashboard.company.annual")}</Title>
       <Table
@@ -49,16 +59,7 @@ const Company = () => {
         rowKey="id"
         pagination={{ pageSize: 5 }}
         bordered
-        loading={loading} // Thêm prop loading vào Table
-      />
-      <Title level={4}>{t("dashboard.company.currentPeriod")}</Title>
-      <Table
-        columns={columns}
-        dataSource={companies}
-        rowKey="id"
-        pagination={{ pageSize: 5 }}
-        bordered
-        loading={loading} // Thêm prop loading vào Table
+        loading={loading}
       />
     </div>
   );
