@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Input, Button, Card, Typography } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons'; // Icon cho input
-import '../styles/layouts/_login-layout.scss'
+import '../styles/layouts/_login.scss'
 
 const { Title } = Typography;
 

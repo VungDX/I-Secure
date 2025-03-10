@@ -1,0 +1,11 @@
+// thay cho App.css
+@use '../base/variables';
+
+.content-layout {
+    min-height: 100vh;
+
+    .content {
+        padding: 26px;
+        background: variables.$white-color;
+    }
+}

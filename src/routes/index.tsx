@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes as RRDRoutes } from "react-router-dom";
-import MainLayout from "../layouts/MainLayout";
 import ProtectedRoute from "./ProtectedRoute";
 import { flatRoutes } from "./routes";
+import ContentLayout from "../layouts/ContentLayout";
 
 const Routes = () => {
   return (
@@ -25,7 +25,7 @@ const Routes = () => {
         <Route
           element={<ProtectedRoute isPrivate={true} redirectTo="/login" />}
         >
-          <Route element={<MainLayout />}>
+          <Route element={<ContentLayout />}>
             {flatRoutes
               .filter((item) => item.isPrivate)
               .map((route) => (
