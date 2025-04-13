@@ -23,22 +23,15 @@ const LoginLayout = () => {
 
   return (
     <div className="login-container">
-      <Card
-        style={{
-          width: 400,
-          margin: '0 auto', // Căn giữa
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Đổ bóng nhẹ
-          borderRadius: 8, // Bo góc
-        }}
-      >
-        <Title level={2} style={{ textAlign: 'center', marginBottom: 24 }}>
+      <Card className="login-card">
+        <Title level={2} className="login-title">
           Login
         </Title>
         <Form
           name="login_form"
           initialValues={{ remember: true }}
           onFinish={onFinish}
-          layout="vertical" // Label trên input
+          layout="vertical"
         >
           <Form.Item
             label="Username"
@@ -46,11 +39,12 @@ const LoginLayout = () => {
             rules={[{ required: true, message: 'Please input your username!' }]}
           >
             <Input
-              prefix={<UserOutlined />}
+              prefix={<UserOutlined className="icon" />}
               placeholder="Enter your username"
               size="large"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              className="login-input"
             />
           </Form.Item>
 
@@ -60,11 +54,12 @@ const LoginLayout = () => {
             rules={[{ required: true, message: 'Please input your password!' }]}
           >
             <Input.Password
-              prefix={<LockOutlined />}
+              prefix={<LockOutlined className="icon" />}
               placeholder="Enter your password"
               size="large"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              className="login-input"
             />
           </Form.Item>
 
@@ -73,8 +68,8 @@ const LoginLayout = () => {
               type="primary"
               htmlType="submit"
               size="large"
-              block // Nút full width
-              style={{ marginTop: 16 }}
+              block
+              className="login-button"
             >
               Login
             </Button>

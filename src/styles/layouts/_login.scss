@@ -1,8 +1,33 @@
 // src/pages/login/Login.scss
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; // Đảm bảo chiếm toàn màn hình
-    background-color: #f0f2f5; // Màu nền nhẹ nhàng
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffafb7, #ececec); /* Gradient màu đỏ pastel dịu */
+  padding: 20px;
+}
+
+
+.login-card {
+  width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #1a73e8;
+}
+
+.icon {
+  color: #1a73e8;
+}
+
+.login-input {
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
